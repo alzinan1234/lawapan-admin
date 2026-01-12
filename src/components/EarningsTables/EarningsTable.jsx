@@ -120,7 +120,7 @@ export default function EarningsTable() {
                 />
               </div>
 
-              <button className=" transition-colors bg-[#B92921] text-white p-[5px] rounded-tr-[7.04px] rounded-br-[7.04px] border-[1px] border-gray-300">
+              {/* <button className=" transition-colors bg-[#036BB4] text-white p-[5px] rounded-tr-[7.04px] rounded-br-[7.04px] border-[1px] border-gray-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -161,7 +161,7 @@ export default function EarningsTable() {
                     strokeLinecap="round"
                   />
                 </svg>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@ export default function EarningsTable() {
 
           <button
             onClick={() => setOpen(!open)}
-            className="flex items-center gap-[8.31px] w-[73px] mb-5 h-[27px] pl-[6.65px] rounded-[18.28px] bg-[#B92921] border border-gray-300 text-white"
+            className="flex items-center gap-[8.31px] w-[73px] mb-5 h-[27px] pl-[6.65px] rounded-[18.28px] bg-[#036BB4] border border-gray-300 text-white"
           >
             <span className="text-xs">{selected}</span>
             <ChevronDown
@@ -214,7 +214,7 @@ export default function EarningsTable() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-black">
             <thead>
-              <tr className="bg-[#B92921] text-white text-center">
+              <tr className="bg-[#036BB4] text-white text-center">
                 <th className="py-2 px-4">Serial</th>
                 <th className="py-2 px-4">Name</th>{" "}
                 {/* Changed from User to Name */}
@@ -271,7 +271,7 @@ export default function EarningsTable() {
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="w-8 h-8 flex items-center border border-[#B92921] rounded-full justify-center p-[10px] hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-8 h-8 flex items-center border border-[#036BB4] rounded-full justify-center p-[10px] hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +282,7 @@ export default function EarningsTable() {
           >
             <path
               d="M6.99995 13C6.99995 13 1.00001 8.58107 0.999999 6.99995C0.999986 5.41884 7 1 7 1"
-              stroke="#B92921"
+              stroke="#036BB4"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -303,7 +303,7 @@ export default function EarningsTable() {
                 onClick={() => handlePageChange(pageNumber)}
                 className={`w-8 h-8 flex items-center justify-center rounded ${
                   currentPage === pageNumber
-                    ? "bg-[#B92921] text-white"
+                    ? "bg-[#036BB4] text-white"
                     : "hover:bg-gray-100"
                 }`}
               >
@@ -325,7 +325,7 @@ export default function EarningsTable() {
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="w-8 h-8 flex items-center border border-[#B92921] rounded-full justify-center hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-8 h-8 flex items-center border border-[#036BB4] rounded-full justify-center hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -336,7 +336,7 @@ export default function EarningsTable() {
           >
             <path
               d="M1.00005 1C1.00005 1 6.99999 5.41893 7 7.00005C7.00001 8.58116 1 13 1 13"
-              stroke="#B92921"
+              stroke="#036BB4"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"

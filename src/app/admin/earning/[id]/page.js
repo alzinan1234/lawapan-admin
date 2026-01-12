@@ -90,7 +90,7 @@ const TransactionDetailsPage = ({ params }) => {
                 {/* Close Button (Red Circle with White X) */}
                 <button
                     onClick={handleClose}
-                    className="absolute -top-3 -right-3 w-10 h-10 bg-[#B92921] rounded-full flex items-center justify-center shadow-md hover:bg-red-700 transition-colors duration-200"
+                    className="absolute -top-3 -right-3 w-10 h-10 bg-[#036BB4] rounded-full flex items-center justify-center shadow-md hover:bg-red-700 transition-colors duration-200"
                 >
                     <X className="text-white" size={24} strokeWidth={2} />
                 </button>

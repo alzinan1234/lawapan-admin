@@ -1,13 +1,12 @@
-import UserManagements from '@/components/UserManagement/UserManagements'
+import UserManagement from '@/components/UserManagement/UserManagement'
 import React from 'react'
 
-const UserManagement = () => {
+const page = () => {
   return (
     <div>
-
-        <UserManagements/>
+       <UserManagement />
     </div>
   )
 }
 
-export default UserManagement
+export default page

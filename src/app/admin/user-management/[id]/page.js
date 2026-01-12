@@ -1,101 +1,100 @@
-// app/vendor/users/[id]/page.js
+// app/admin/user-management/[id]/page.js
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { X } from 'lucide-react';
+import { useRouter } from "next/navigation";
+import { 
+  ArrowLeftIcon, 
+  CheckIcon, 
+  XMarkIcon 
+} from "@heroicons/react/24/outline";
 
-// Centralized dummy user data (copied from UserManagement for this page's context)
-// In a real app, you might fetch this from a centralized API or a shared lib file.
-const allUsers = new Array(35).fill(null).map((_, i) => ({
-    id: `user-${i + 1}`,
-    name: `Robo Gladiator ${i + 1}`,
-    email: `robo${i + 1}@gmail.com`,
-    fullName: i % 3 === 0 ? "Jane Cooper" : i % 3 === 1 ? "Mark Johnson" : "Alice Williams", // Added full name
-    phone: i % 3 === 0 ? "(319) 555-0115" : i % 3 === 1 ? "(555) 123-4567" : "(987) 654-3210", // Added phone
-   
-    date: `March ${15 + (i % 31)}, 2024`,
-    // Using a more suitable user avatar for the details page
-    avatar: 'https://placehold.co/100x100/A76241/ffffff?text=User',
-    status: 'active',
-    registrationDate: `March ${15 + (i % 31)}, 2024` // Added registrationDate for clarity
-}));
+export default function UserDetailPage() {
+  const router = useRouter();
 
+  return (
+    <div className="p-8 bg-white min-h-screen">
+      {/* Header */}
+      <div className="flex items-center gap-4 mb-4">
+        <button 
+          onClick={() => router.back()}
+          className="p-2 bg-[#E0F2FE] rounded-full hover:bg-blue-100 transition-colors"
+        >
+          <ArrowLeftIcon className="w-5 h-5 text-[#036BB4]" />
+        </button>
+        <h1 className="text-xl font-bold text-gray-800">Transporter Profile Detail</h1>
+      </div>
 
-const UserDetailsPage = ({ params }) => {
-    const router = useRouter();
-    const { id } = params; // Get the user ID from the URL
-    const [user, setUser] = useState(null);
+      {/* Status Badge */}
+      <div className="mb-4">
+        <span className="inline-flex items-center px-3 py-1 bg-[#FF6B00] text-white text-xs font-bold rounded-full gap-1.5">
+          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+          Pending
+        </span>
+      </div>
 
-    useEffect(() => {
-        if (id) {
-            // Find the user from the dummy data array
-            // In a real application, you would fetch this from an API: fetch(`/api/users/${id}`)
-            const foundUser = allUsers.find(u => u.id === id);
-            setUser(foundUser);
-        }
-    }, [id]);
-
-    const handleClose = () => {
-        router.back(); // Go back to the previous page (UserManagement)
-    };
-
-    if (!user) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-gray-100 text-gray-800">
-                <p>Loading user details or user not found...</p>
-            </div>
-        );
-    }
-
-    // Determine the user image to display
-    const userImage = user.avatar || "/image/default-user.png"; // Fallback if avatar is missing
-
-    return (
-        <div className="relative min-h-screen bg-gray-100 flex items-center justify-center p-4">
-            <style jsx global>{`
-                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-                body {
-                    font-family: 'Inter', sans-serif;
-                }
-            `}</style>
-            <div className="relative bg-white rounded-xl shadow-lg p-6 max-w-md w-full sm:p-8">
-                {/* Close Button (Red Circle with White X) */}
-                <button
-                    onClick={handleClose}
-                    className="absolute -top-3 -right-3 w-10 h-10 bg-[#B92921] rounded-full flex items-center justify-center shadow-md hover:bg-red-700 transition-colors duration-200"
-                >
-                    <X className="text-white" size={24} strokeWidth={2} />
-                </button>
-
-                <div className="flex flex-col items-center sm:flex-row sm:items-start sm:gap-6 mb-6">
-                    {/* User Image */}
-                    <div className="flex-shrink-0 mb-4 sm:mb-0">
-                        <Image
-                            src={userImage}
-                            alt="User Avatar"
-                            width={100}
-                            height={100}
-                            className="rounded-lg object-cover border border-gray-200" // Adjusted to rounded-lg as per screenshot
-                            onError={(e) => { e.target.onerror = null; e.target.src = "/image/default-user.png"; }} // Fallback image
-                            unoptimized // Add unoptimized if image optimization causes issues with external URLs
-                        />
-                    </div>
-
-                    {/* User Details */}
-                    <div className="text-center sm:text-left">
-                        <p className="text-gray-800 text-lg font-semibold mb-1">User ID: {user.id.replace('user-', '')}</p> {/* Displaying ID without 'user-' prefix */}
-                        <p className="text-gray-600 text-sm mb-1">Full name : {user.fullName}</p>
-                        <p className="text-gray-600 text-sm mb-1">Email: {user.email}</p>
-                        <p className="text-gray-600 text-sm mb-1">Phone number: {user.phone}</p>
-                      
-                        <p className="text-gray-600 text-sm">Registration Date: {user.registrationDate}</p>
-                    </div>
-                </div>
-            </div>
+      {/* Profile Header */}
+      <div className="mb-8">
+        <div className="w-24 h-24 rounded-full border-2 border-gray-100 overflow-hidden mb-4 p-2 bg-[#F8FAFC]">
+            <img src="/truck-logo.png" alt="Logo" className="w-full h-full object-contain" />
         </div>
-    );
-};
+        <h2 className="text-2xl font-bold text-gray-900">Truck Lagbe</h2>
+      </div>
 
-export default UserDetailsPage;
+      {/* Information Card */}
+      <div className="max-w-4xl">
+        <h3 className="text-lg font-bold text-gray-900 mb-4">Basic Information</h3>
+        <div className="border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+          {/* Row 1 */}
+          <div className="grid grid-cols-2 border-b border-gray-100">
+            <div className="p-5 border-r border-gray-100">
+              <p className="text-gray-400 text-sm mb-1">Email adress</p>
+              <p className="text-gray-900 font-bold">@gmail.com</p>
+            </div>
+            <div className="p-5">
+              <p className="text-gray-400 text-sm mb-1">Phone</p>
+              <p className="text-gray-900 font-bold">01797111139</p>
+            </div>
+          </div>
+          {/* Row 2 */}
+          <div className="grid grid-cols-2 border-b border-gray-100">
+            <div className="p-5 border-r border-gray-100">
+              <p className="text-gray-400 text-sm mb-1">Country</p>
+              <div className="flex items-center gap-2">
+                <span className="w-5 h-3 bg-[#E5E7EB]">🇧🇯</span>
+                <p className="text-gray-900 font-bold">Benin</p>
+              </div>
+            </div>
+            <div className="p-5">
+              <p className="text-gray-400 text-sm mb-1">Number of Trucks</p>
+              <p className="text-gray-900 font-bold">20</p>
+            </div>
+          </div>
+          {/* Row 3 */}
+          <div className="p-5">
+            <p className="text-gray-400 text-sm mb-1">Truck Type</p>
+            <div className="flex items-center gap-2">
+               <span className="text-gray-500">🚚</span>
+               <p className="text-gray-900 font-bold">Semi-trailer</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="mt-10 flex gap-4">
+          <button className="flex-1 bg-[#4CAF50] hover:bg-green-600 text-white py-4 rounded-full font-bold flex items-center justify-center gap-2 transition-all">
+            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                <CheckIcon className="w-3 h-3 text-white" />
+            </div>
+            Accept
+          </button>
+          <button className="flex-1 bg-white border border-red-500 text-red-500 hover:bg-red-50 py-4 rounded-full font-bold flex items-center justify-center gap-2 transition-all">
+             <div className="w-5 h-5 rounded-full bg-red-50 flex items-center justify-center border border-red-200">
+                <XMarkIcon className="w-3 h-3 text-red-500" />
+            </div>
+            Reject
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
