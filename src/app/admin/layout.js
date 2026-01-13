@@ -52,9 +52,6 @@ export default function RootLayout({ children }) {
           >
          {/* Topbar always visible */}
       <Topbar onBellClick={handleBellClick} />
-
-      
-
       {/* Conditionally render NotificationPage or MainContent */}
       {showNotifications ? (
         <div className='p-6'>
@@ -62,8 +59,7 @@ export default function RootLayout({ children }) {
         </div> // Pass handler to NotificationPage
       ) : (
         <div className="p-4">{children}</div>
-      )}
-            
+      )}  
           </main>
         </div>
       </body>
