@@ -5,45 +5,45 @@ import { usePathname } from "next/navigation";
 
 
 import {
-  LayoutDashboard,
+  LayoutGrid,
   FileText,
-  Wallet,
-  Users,
-  Megaphone,
-  CreditCard,
-  HelpCircle,
-  Bell,
-  Settings,
-  Image as ImageIcon,
-  BanknoteArrowDown,
-  Bike,
-  Utensils,
+  ListTodo,
+  Radio,
+  UserCog,
+  ShoppingBag,
+  UserSquare2,
+  AlertOctagon,
+  CloudDownload,
+  Hexagon,
+    Settings
 } from "lucide-react";
 import Image from "next/image";
 import dreckks from "../../public/tika-food.svg";
 import barss from "../../public/icon/bars.png";
 
 const navItems = [
-  { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
+  { name: "Dashboard", href: "/admin", icon: LayoutGrid }, // Changed to Grid icon
   {
     name: "Transporter Registrations",
     href: "/admin/transporter-registration",
     icon: FileText,
   },
-
-  { name: "Shipment Requests", href: "/admin/shipment-requests", icon: Users },
-  { name: "Live Bids & Transporter", href: "/admin/live-bids-transporter", icon: Wallet },
-  { name: "User Management", href: "/admin/user-management", icon: Bike },
-  { name: 'Earning', href: '/admin/earning', icon: Utensils },
-  // { name: 'Subscriptions', href: '/admin/subscriptions', icon: CreditCard },
-  { name: "FAQ & Support", href: "/admin/faq-support", icon: HelpCircle },
+  { name: "Shipment Requests", href: "/admin/shipment-requests", icon: ListTodo }, // Changed to List icon
+  { name: "Live Bids & Transporter", href: "/admin/live-bids-transporter", icon: Radio }, // Changed to Signal/Radio icon
+  { name: "User Management", href: "/admin/user-management", icon: UserCog }, // Changed to User with Gear icon
+  { name: 'Earning', href: '/admin/earning', icon: ShoppingBag }, // Changed to Bag icon
+  { name: "FAQ & Support", href: "/admin/faq-support", icon: UserSquare2 }, // Changed to Profile Support icon
+  {
+    name: "Problem Management", 
+    href: "/admin/problem-management",
+    icon: AlertOctagon, // Changed to Alert icon
+  },
   {
     name: "Withdrawal Requests", 
     href: "/admin/withdrawal-requests",
-    icon: BanknoteArrowDown, 
+    icon: CloudDownload, // Changed to Cloud/Withdraw icon
   },
-  // { name: 'Notifications', href: '/admin/notifications', icon: Bell },
-  { name: "Settings", href: "/admin/settings", icon: Settings },
+  { name: "Settings", href: "/admin/settings", icon:   Settings }, // Changed to Hexagon icon
 ];
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
@@ -109,6 +109,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 </Link>
               );
             })}
+            
 
             {/* Logout Button */}
             <div className="border-t border-[#D6D6D6] pt-6 ">
