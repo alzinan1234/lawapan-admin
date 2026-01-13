@@ -55,15 +55,15 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-white p-8">
       <Toaster position="top-center" reverseOrder={false} />
 
       {/* Left Red Panel */}
-      <div className="hidden lg:flex w-1/2 bg-[#BA2721] items-center justify-center p-8">
+      <div className="hidden lg:flex w-1/2 bg-[#ffffff] items-center justify-center border-[2px] border-[#036BB4] p-8">
         <div className="text-center">
           {/* Replaced src with a placeholder. Update with your actual image path in the /public folder. */}
           <img
-            src="/TikaFood-image.png"
+            src="/admin-logo.png"
             alt="TikaFood Logo"
             className="mx-auto mb-4 max-w-full h-auto"
             onError={(e) => {
@@ -80,7 +80,7 @@ export default function ForgotPasswordPage() {
           <div className="self-stretch flex flex-col justify-start items-center gap-[30px]">
             <div className="self-stretch flex flex-col justify-center items-center gap-[30px]">
               <div className="w-full flex flex-col justify-start items-center gap-[18px]">
-                <h2 className="self-stretch text-center text-[#BB2821] text-2xl font-bold font-[Open_Sans]">
+                <h2 className="self-stretch text-center text-[#036BB4] text-2xl font-bold font-[Open_Sans]">
                   Forgot Password
                 </h2>
                 <p className="self-stretch text-center text-[#5C5C5C] text-sm font-normal font-[Open_Sans]">
@@ -126,7 +126,7 @@ export default function ForgotPasswordPage() {
                 {/* Send Code Button */}
                 <button
                   type="submit"
-                  className={`w-28 h-10 mx-auto mt-4 bg-[#BB2821] text-white rounded-md text-sm font-normal font-[Open_Sans] shadow-[0px_4px_4px_rgba(189,189,189,0.25)] flex justify-center items-center transition duration-300 ease-in-out hover:bg-red-700 ${
+                  className={`w-28 h-10 mx-auto mt-4 bg-[#036BB4] text-white rounded-md text-sm font-normal font-[Open_Sans] shadow-[0px_4px_4px_rgba(189,189,189,0.25)] flex justify-center items-center transition duration-300 ease-in-out hover:bg-blue-700 ${
                     loading ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                   disabled={loading}
