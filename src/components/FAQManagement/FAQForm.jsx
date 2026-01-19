@@ -5,6 +5,7 @@ import React from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 export default function FAQForm({ mode = "add", initialData = null, onBack }) {
+  
   const isEdit = mode === "edit";
 
   return (
